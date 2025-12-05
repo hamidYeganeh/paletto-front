@@ -1,2 +1,18 @@
 @import "tailwindcss";
 @import "@paletto/tailwind";
+
+@layer base {
+  :root {
+    --primary-50: #f6f4fa;
+    --primary-100: #c7bce0;
+    --primary-200: #9985c6;
+    --primary-300: #6a4dac;
+    --primary-400: #421f8f;
+    --primary-500: #391b7d;
+    --primary-600: #31176b;
+    --primary-700: #291359;
+    --primary-800: #201047;
+    --primary-900: #180c35;
+    --primary-950: #100823;
+  }
+}
