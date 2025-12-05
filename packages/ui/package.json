@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx"
+    "./Button": "./src/kit/Button/index.ts",
+    "./TextField": "./src/kit/TextField/index.ts",
+    "./Input": "./src/kit/Input/index.ts",
+    "./Modal": "./src/kit/Modal/index.ts",
+    "./styles.css": "./src/styles.css"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
@@ -21,7 +25,23 @@
     "typescript": "5.9.2"
   },
   "dependencies": {
+    "@heroui/react": "^2.8.5",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
-  }
+  },
+  "files": [
+    "src/kit/Button/*",
+    "src/kit/TextField/*",
+    "src/kit/Input/*",
+    "src/kit/Modal/*",
+    "src/utils/*",
+    "src/shared/*",
+    "src/styles.css"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ]
 }

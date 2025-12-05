@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "@paletto/tailwind";
+@import "@repo/ui/styles.css";
+
 
 @layer base {
   :root {
@@ -14,5 +16,29 @@
     --primary-800: #201047;
     --primary-900: #180c35;
     --primary-950: #100823;
+
+    --secondary-50: #f5f3ff; /* indigo-50 */
+    --secondary-500: #6366f1; /* indigo-500 */
+    --secondary-600: #4f46e5; /* indigo-600 */
+
+    --success-50: #f0fdf4; /* green-50 */
+    --success-500: #22c55e; /* green-500 */
+    --success-600: #16a34a; /* green-600 */
+
+    --warning-50: #fffbeb; /* amber-50 */
+    --warning-500: #f59e0b; /* amber-500 */
+    --warning-600: #d97706; /* amber-600 */
+
+    --danger-50: #fff1f2; /* rose-50 */
+    --danger-500: #f43f5e; /* rose-500 */
+    --danger-600: #e11d48; /* rose-600 */
+
+    --error-50: #fee2e2; /* red-100 close */
+    --error-500: #ef4444; /* red-500 */
+    --error-600: #dc2626; /* red-600 */
+
+    --info-50: #f0f9ff; /* sky-50 */
+    --info-500: #0ea5e9; /* sky-500 */
+    --info-600: #0284c7; /* sky-600 */
   }
 }

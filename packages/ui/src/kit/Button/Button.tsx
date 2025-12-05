@@ -1,0 +1,123 @@
+"use client";
+
+import { useMemo, useRef } from "react";
+import type { FC, ElementType, MouseEvent } from "react";
+import { ButtonStyles } from "./ButtonStyles";
+import type { ButtonProps } from "./ButtonTypes";
+import { cn } from "../../utils/cn";
+import { Ripple } from "../../shared/Ripple";
+import type { RippleRef } from "../../shared/Ripple";
+
+const Button: FC<ButtonProps> = (props) => {
+  const {
+    children,
+    onClick,
+    variant,
+    color,
+    size,
+    radius,
+    disabledRipple = false,
+    className,
+    fullWidth,
+    disabledAnimation,
+    disableAnimation,
+    loading = false,
+    spinnerPlacement = "center",
+    spinner,
+    isIconOnly = false,
+    startIcon,
+    endIcon,
+    as,
+    href,
+    ...otherProps
+  } = props;
+
+  const buttonRef = useRef<HTMLElement>(null);
+  const rippleRef = useRef<RippleRef>(null);
+
+  const Component: ElementType = href ? "a" : (as ?? "button");
+  const isDisabled =
+    loading ||
+    ("disabled" in otherProps
+      ? ((otherProps as { disabled?: boolean }).disabled ?? false)
+      : false);
+
+  const handleClick = (e: MouseEvent<HTMLElement>) => {
+    if (rippleRef.current && !disabledRipple) {
+      rippleRef.current.createRipple(e);
+    }
+    if (onClick) {
+      onClick(e as MouseEvent<HTMLButtonElement>);
+    }
+  };
+
+  const spinnerNode = useMemo(() => {
+    return (
+      spinner ?? <span aria-hidden className={ButtonStyles.spinner({ size })} />
+    );
+  }, [size, spinner]);
+
+  const content = useMemo(() => {
+    return (
+      <>
+        {loading && spinnerPlacement === "start" ? spinnerNode : null}
+        {startIcon ? (
+          <span className={ButtonStyles.icon({ size })}>{startIcon}</span>
+        ) : null}
+        <span className={cn(isIconOnly && "sr-only")}>{children}</span>
+        {endIcon ? (
+          <span className={ButtonStyles.icon({ size })}>{endIcon}</span>
+        ) : null}
+        {loading && spinnerPlacement === "end" ? spinnerNode : null}
+      </>
+    );
+  }, [
+    children,
+    endIcon,
+    isIconOnly,
+    loading,
+    size,
+    spinnerNode,
+    spinnerPlacement,
+    startIcon,
+  ]);
+
+  return (
+    <Component
+      ref={buttonRef}
+      onClick={handleClick}
+      className={cn(
+        className,
+        ButtonStyles.base({
+          variant,
+          color,
+          size,
+          radius,
+          disabledAnimation: disableAnimation ?? disabledAnimation,
+          fullWidth,
+          loading,
+          isIconOnly,
+        })
+      )}
+      {...(Component === "button" ? { disabled: isDisabled } : {})}
+      aria-busy={loading}
+      {...(Component === "a" && href ? { href } : {})}
+      {...otherProps}
+    >
+      <Ripple parentRef={buttonRef} ref={rippleRef} />
+      {loading && spinnerPlacement === "center" ? (
+        <span
+          className="absolute inset-0 flex items-center justify-center"
+          aria-hidden
+        >
+          {spinnerNode}
+        </span>
+      ) : null}
+      <span className={ButtonStyles.content()}>{content}</span>
+    </Component>
+  );
+};
+
+Button.displayName = "Button";
+
+export default Button;

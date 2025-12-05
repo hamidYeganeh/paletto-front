@@ -23,10 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`min-h-dvh bg-blue-500 text-black ${geistSans.variable} ${geistMono.variable}`}
-      >
-        {children}
+      <body className={`min-h-dvh ${geistSans.variable} ${geistMono.variable}`}>
+        <>{children}</>
       </body>
     </html>
   );
