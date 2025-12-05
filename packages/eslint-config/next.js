@@ -26,6 +26,13 @@ export const nextJsConfig = [
     "next-env.d.ts",
   ]),
   {
+    ignores: [
+      "**/next.config.js",
+      "**/tailwind.config.js",
+      "**/postcss.config.js"
+    ],
+  },
+  {
     ...pluginReact.configs.flat.recommended,
     languageOptions: {
       ...pluginReact.configs.flat.recommended.languageOptions,

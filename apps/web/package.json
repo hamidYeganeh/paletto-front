@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --max-warnings 0",
-    "check-types": "next typegen && tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "type-check": "npm run check-types"
   },
   "dependencies": {
     "@repo/ui": "*",
@@ -17,12 +18,15 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@paletto/tailwind": "*",
+    "@tailwindcss/postcss": "^4.0.0",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "eslint": "^9.39.1",
+    "tailwindcss": "^4.1.17",
     "typescript": "5.9.2"
   }
 }

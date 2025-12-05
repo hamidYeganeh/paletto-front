@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "preserve",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@paletto/types": ["../types/src"],
+      "@paletto/utils": ["../utils/src"],
+      "@paletto/tailwind": ["../tailwind"],
+      "@paletto/config/*": ["./*"]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@theme {
+  --color-primary: #111827;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #4b5563;
+  --color-secondary-foreground: #ffffff;
+
+  --color-accent: #e11d48;
+  --color-accent-foreground: #ffffff;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --spacing-px: 1px;
+  --spacing-0: 0px;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+
+  --font-sans: ui-sans-serif, system-ui;
+  --font-mono: ui-monospace, SFMono-Regular;
+}
