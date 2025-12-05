@@ -1,13 +1,29 @@
 import type { ReactNode, ElementType, MouseEvent } from "react";
 
-export type ButtonVariant = "contained" | "outlined" | "flat" | "ghost" | "light" | "faded" | "shadow";
-export type ButtonColor = "primary" | "secondary" | "success" | "warning" | "danger" | "default" | "error" | "info";
+export type ButtonVariant =
+  | "contained"
+  | "outlined"
+  | "flat"
+  | "ghost"
+  | "light"
+  | "faded"
+  | "shadow";
+export type ButtonColor =
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "danger"
+  | "default"
+  | "error"
+  | "info";
 export type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 export type ButtonRadius = "none" | "xs" | "sm" | "md" | "lg" | "xl" | "full";
 
 export interface ButtonProps {
-  children?: ReactNode;
+  children?: ReactNode | ((values: ButtonRenderProps) => ReactNode);
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  onPress?: (e: MouseEvent<HTMLButtonElement>) => void;
   variant?: ButtonVariant;
   color?: ButtonColor;
   size?: ButtonSize;
@@ -18,6 +34,8 @@ export interface ButtonProps {
   disabledAnimation?: boolean;
   disableAnimation?: boolean;
   loading?: boolean;
+  isPending?: boolean;
+  isDisabled?: boolean;
   spinnerPlacement?: "start" | "end" | "center";
   spinner?: ReactNode;
   isIconOnly?: boolean;
@@ -32,4 +50,13 @@ export interface ButtonProps {
   value?: string | number;
   ariaBusy?: boolean;
   ariaLabel?: string;
+}
+
+export interface ButtonRenderProps {
+  isPending: boolean;
+  isPressed: boolean;
+  isHovered: boolean;
+  isFocused: boolean;
+  isFocusVisible: boolean;
+  isDisabled: boolean;
 }

@@ -15,6 +15,7 @@ import Link from "next/link";
 import Tabs from "@repo/ui/Tabs";
 import Accordion from "@repo/ui/Accordion";
 import Dropdown from "@repo/ui/Dropdown";
+import ComboBox from "@repo/ui/ComboBox";
 
 export default function Home() {
   return (
@@ -103,6 +104,21 @@ export default function Home() {
               { key: "one", label: "Action One" },
               { key: "two", label: "Action Two" },
               { key: "three", label: "Action Three" },
+            ]}
+          />
+        </div>
+        <div className="w-full">
+          <ComboBox
+            label="Fruits"
+            description="Type to filter"
+            variant="outlined"
+            color="primary"
+            allowsCustomValue
+            items={[
+              { key: "apple", label: "Apple" },
+              { key: "banana", label: "Banana" },
+              { key: "orange", label: "Orange" },
+              { key: "grape", label: "Grape" },
             ]}
           />
         </div>

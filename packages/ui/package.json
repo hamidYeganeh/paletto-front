@@ -17,6 +17,7 @@
     "./Tabs": "./src/kit/Tabs/index.ts",
     "./Accordion": "./src/kit/Accordion/index.ts",
     "./Dropdown": "./src/kit/Dropdown/index.ts",
+    "./ComboBox": "./src/kit/ComboBox/index.ts",
     "./styles.css": "./src/styles.css"
   },
   "scripts": {
@@ -57,6 +58,7 @@
     "src/kit/Tabs/*",
     "src/kit/Accordion/*",
     "src/kit/Dropdown/*",
+    "src/kit/ComboBox/*",
     "src/utils/*",
     "src/shared/*",
     "src/styles.css"
